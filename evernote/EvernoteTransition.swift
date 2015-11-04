@@ -31,8 +31,6 @@ class EvernoteTransition: NSObject,UIViewControllerAnimatedTransitioning,UIViewC
     }
     
     // MARK: UIViewControllerAnimatedTransitioning
-    
-    // UIViewControllerAnimatedTransitioning
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.45
     }
@@ -106,7 +104,7 @@ class EvernoteTransition: NSObject,UIViewControllerAnimatedTransitioning,UIViewC
 
     }
     
-    // UIViewControllerTransitioningDelegate
+    // MARK: UIViewControllerTransitioningDelegate
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning?
     {
         self.isPresent = true
@@ -170,7 +168,7 @@ class EvernoteTransition: NSObject,UIViewControllerAnimatedTransitioning,UIViewC
         }
     }
     
-    // NoteViewControllerDelegate
+    // MARK: NoteViewControllerDelegate
     func didClickGoBack()
     {
         panViewController.dismissViewControllerAnimated(true, completion: { () -> Void in
