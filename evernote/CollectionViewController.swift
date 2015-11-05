@@ -18,6 +18,9 @@ class CollectionViewController: UIViewController,UICollectionViewDelegate, UICol
     private let rowNumber = 15
     private let customTransition = EvernoteTransition()
     private let collectionView = UICollectionView(frame: CGRectMake(0, topPadding, screenWidth, screenHeight - topPadding), collectionViewLayout: CollectionViewLayout())
+    
+    var a = 2, b = 0, c = 0
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -39,6 +42,25 @@ class CollectionViewController: UIViewController,UICollectionViewDelegate, UICol
             colorArray.addObject(color)
         }
         
+        self.f1()
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) { () -> Void in
+            self.f2()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                NSLog("a: \(self.a)")
+            })
+        }
+    }
+    
+    func f1()
+    {
+        self.a = self.a * 2
+        self.a = self.b
+    }
+    
+    func f2()
+    {
+        self.c = self.a + 11
+        self.a = self.c
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle
